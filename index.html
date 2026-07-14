@@ -100,7 +100,7 @@ function line(id,label,labels,data){
 }
 function render(data){
  destroyCharts();
- const labels=data.map(x=>x.date.toISOString().slice(0,7));
+ const labels = data.map(x =>     `${x.date.getFullYear()}-${String(x.date.getMonth() + 1).padStart(2, "0")}` );
  const y=yoy(data), r=rolling(data), cg=cagr(data);
  latest.textContent=data.at(-1).sales.toLocaleString();
  yoykpi.textContent=y.at(-1)==null?"N/A":y.at(-1).toFixed(1)+"%";
